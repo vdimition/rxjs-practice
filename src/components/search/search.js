@@ -6,8 +6,8 @@ const input = document.getElementById('search-input');
 const input$ = fromEvent(input, 'input')
   .pipe(
     map(e => e.target.value),
+    debounce(() => timer(750)),
     filter(v => v.length > 2),
-    debounce(() => timer(750))
   );
 
 input$.subscribe(
