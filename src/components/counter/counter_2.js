@@ -1,7 +1,7 @@
 import pkg from 'rxjs';
 const { Observable } = pkg;
 
-const source = Observable.create((observer) => {
+const source$ = Observable.create((observer) => {
   let count = 0;
   console.log('Observable created');
 
@@ -18,7 +18,7 @@ const source = Observable.create((observer) => {
   }
 });
 
-const subscription = source.subscribe(
+const subscription = source$.subscribe(
   value => console.log('Next: ' + value),
   error => console.error('Error: ' + error),
   () => console.log('Completed!!')
